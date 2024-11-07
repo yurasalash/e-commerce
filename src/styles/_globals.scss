@@ -1,0 +1,14 @@
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.app {
+    margin-top: 100px;
+}
+
+.home {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    column-gap: 50px;
+}

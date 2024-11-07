@@ -1,0 +1,31 @@
+h2 {
+  margin-bottom: 30px;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 16px;
+  row-gap: 26px;
+}
+
+.item {
+  border: 1px solid var(--color-gray);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.title {
+  font-size: 20px;
+}
+.title:hover {
+  color: var(--color-gray);
+  text-decoration: underline;
+}
+
+.price {
+  font-size: 20px;
+}
+
+/*# sourceMappingURL=Products.module.css.map */

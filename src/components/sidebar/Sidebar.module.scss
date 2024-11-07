@@ -1,0 +1,17 @@
+.sidebar {
+    border-right: 1px solid var(--color-gray);
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.item {
+    font-size: 18px;
+
+    &:hover {
+        color: var(--color-gray);
+    }
+}
