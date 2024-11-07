@@ -9,10 +9,10 @@ const ProductsList = ({products}: {products: Product[]}) => {
             <div className={styles.list}>
                 {products.map(product =>
                     <div key={product.id} className={styles.item}>
-                        <Link to={'/'} className={styles.image}>
-                            <img src={product.image_url} alt=""/>
+                        <Link to={`/products/${product.id}`} className={styles.image}>
+                            <img src={product.image_url} alt="" loading='lazy' />
                         </Link>
-                        <Link className={styles.title} to={'/'}>{product.title}</Link>
+                        <Link className={styles.title} to={`/products/${product.id}`}>{product.title}</Link>
                         <strong className={styles.price}>{product.price}$</strong>
                     </div>
                 )}

@@ -2,20 +2,26 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Header from "./components/header/Header.tsx";
 import HomePage from "./pages/HomePage.tsx";
 import Footer from "./components/footer/Footer.tsx";
+import SingleProductPage from "./pages/SingleProductPage.tsx";
+import CartPage from "./pages/CartPage.tsx";
 
 
 function App() {
     return (
         <BrowserRouter>
-            <Header />
             <div className='app'>
-                <div className="container">
-                    <Routes>
-                        <Route path="/" element={<HomePage />} />
-                    </Routes>
+                <Header />
+                <div className='main'>
+                    <div className="container">
+                        <Routes>
+                            <Route path="/" element={<HomePage />} />
+                            <Route path='/products/:productId' element={<SingleProductPage />} />
+                            <Route path='/cart' element={<CartPage />} />
+                        </Routes>
+                    </div>
                 </div>
+                <Footer />
             </div>
-            <Footer />
         </BrowserRouter>
     )
 }

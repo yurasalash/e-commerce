@@ -1,11 +1,12 @@
-import Slider from "../components/slider/Slider.tsx";
+
 import Sidebar from "../components/sidebar/Sidebar.tsx";
 import {useAppSelector} from "../app/hooks.ts";
 import ProductsList from "../features/products/ProductsList.tsx";
+import {selectAllProducts} from "../features/products/productSlice.ts";
 
 
 const HomePage = () => {
-    const products = useAppSelector(state => state.products)
+    const products = useAppSelector(selectAllProducts)
 
     return (
         <div className="home">
