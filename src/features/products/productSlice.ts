@@ -1,36 +1,68 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {RootState} from "../../app/store.ts";
+import {createAppAsyncThunk} from "../../app/hooks.ts";
+import axios from "axios";
 
 export interface Product {
-    id: string;
+    id: number;
     title: string;
     price: number;
     rating: number;
-    image_url: string;
+    images: string[];
+    description: string;
 }
 
-const initialState: Product[] = [
-    {id: '1', title: 'Phone', price: 10, rating: 1, image_url: 'https://images.pexels.com/photos/336948/pexels-photo-336948.jpeg?cs=srgb&dl=pexels-solliefoto-336948.jpg&fm=jpg'},
-    {id: '2', title: 'Pavlo', price: 20, rating: 1, image_url: 'https://images.pexels.com/photos/336948/pexels-photo-336948.jpeg?cs=srgb&dl=pexels-solliefoto-336948.jpg&fm=jpg'},
-    {id: '3', title: 'Pasha', price: 30, rating: 1, image_url: 'https://images.pexels.com/photos/336948/pexels-photo-336948.jpeg?cs=srgb&dl=pexels-solliefoto-336948.jpg&fm=jpg'},
-    {id: '5', title: 'Pukalo', price: 40, rating: 1, image_url: 'https://images.pexels.com/photos/336948/pexels-photo-336948.jpeg?cs=srgb&dl=pexels-solliefoto-336948.jpg&fm=jpg'},
-    {id: '6', title: 'Phone', price: 50, rating: 1, image_url: 'https://images.pexels.com/photos/336948/pexels-photo-336948.jpeg?cs=srgb&dl=pexels-solliefoto-336948.jpg&fm=jpg'},
-    {id: '7', title: 'Phone', price: 60, rating: 1, image_url: 'https://images.pexels.com/photos/336948/pexels-photo-336948.jpeg?cs=srgb&dl=pexels-solliefoto-336948.jpg&fm=jpg'},
-    {id: '8', title: 'Phone', price: 70, rating: 1, image_url: 'https://images.pexels.com/photos/336948/pexels-photo-336948.jpeg?cs=srgb&dl=pexels-solliefoto-336948.jpg&fm=jpg'},
-    {id: '9', title: 'Phone', price: 80, rating: 1, image_url: 'https://images.pexels.com/photos/336948/pexels-photo-336948.jpeg?cs=srgb&dl=pexels-solliefoto-336948.jpg&fm=jpg'},
-    {id: '10', title: 'Phone', price: 90, rating: 1, image_url: 'https://images.pexels.com/photos/336948/pexels-photo-336948.jpeg?cs=srgb&dl=pexels-solliefoto-336948.jpg&fm=jpg'},
-    {id: '11', title: 'Phone', price: 100, rating: 1, image_url: 'https://images.pexels.com/photos/336948/pexels-photo-336948.jpeg?cs=srgb&dl=pexels-solliefoto-336948.jpg&fm=jpg'},
-    {id: '12', title: 'Phone', price: 100, rating: 1, image_url: 'https://images.pexels.com/photos/336948/pexels-photo-336948.jpeg?cs=srgb&dl=pexels-solliefoto-336948.jpg&fm=jpg'},
-]
+export interface ProductState {
+    products: Product[];
+    status: 'idle' | 'pending' | 'success' | 'failed';
+    error: string | null;
+}
+
+const initialState: ProductState = {
+    products: [],
+    status: 'idle',
+    error: null,
+}
+
+interface ProductRequest {
+    products: Product[];
+    total: number;
+    skip: number;
+    limit: number;
+}
+
+export const fetchProducts = createAppAsyncThunk('products/fetchProducts', async () => {
+    const response = await axios.get<ProductRequest>('https://dummyjson.com/products')
+    return response.data
+})
 
 export const productSlice = createSlice({
     name: "products",
     initialState,
-    reducers: {}
+    reducers: {
+
+    },
+    extraReducers: builder => {
+        builder
+            .addCase(fetchProducts.pending, state => {
+                state.status = 'pending'
+            })
+            .addCase(fetchProducts.fulfilled, (state, action) => {
+                state.status = 'success'
+                state.products = action.payload.products
+            })
+            .addCase(fetchProducts.rejected, (state, action) => {
+                state.status = 'failed'
+                state.error = action.error.message ?? 'Unknown error'
+            })
+    }
 })
 
 export default productSlice.reducer
 
-export const selectAllProducts = (state: RootState) => state.products
-export const selectProductById = (state: RootState, id: string) =>
-    state.products.find(product => product.id === id)
+export const selectAllProducts = (state: RootState) => state.products.products
+export const selectProductById = (state: RootState, id: number) =>
+    state.products.products.find(product => product.id == id)
+
+export const selectStatus = (state: RootState) => state.products.status
+export const selectError = (state: RootState) => state.products.error

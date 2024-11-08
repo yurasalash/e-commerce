@@ -1,0 +1,18 @@
+.change {
+    border-radius: var(--border-radius);
+    background: var(--color-gray);
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 30px;
+    width: 200px;
+
+    button {
+        transition: .2s;
+    }
+
+    button:hover {
+        scale: 1.2;
+    }
+}

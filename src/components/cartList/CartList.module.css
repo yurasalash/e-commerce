@@ -12,12 +12,19 @@
 
 .product {
   display: flex;
-  gap: 30px;
+  gap: 100px;
   border: 1px solid var(--color-gray);
   padding: 20px;
+  border-radius: var(--border-radius);
 }
-.product img {
+
+.details {
+  display: flex;
+  gap: 20px;
+}
+.details img {
   max-width: 200px;
+  border-radius: var(--border-radius);
 }
 
 .info {
@@ -35,6 +42,16 @@
   font-size: 20px;
 }
 
+.delete {
+  cursor: pointer;
+}
+.delete svg {
+  width: 30px;
+  height: 30px;
+  color: red;
+  fill: transparent;
+}
+
 .order {
   display: flex;
   flex-direction: column;
@@ -42,17 +59,6 @@
 }
 .order strong {
   font-size: 30px;
-}
-.order button {
-  width: 300px;
-  background: var(--color-gray);
-  color: var(--color-dark);
-  padding: 20px;
-  border-radius: var(--border-radius);
-  transition: 0.2s;
-}
-.order button:hover {
-  scale: 1.1;
 }
 
 /*# sourceMappingURL=CartList.module.css.map */

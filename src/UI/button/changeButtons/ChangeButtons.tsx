@@ -1,19 +1,13 @@
 import styles from './ChangeButtons.module.css'
-import {useEffect, useState} from "react";
+import React from "react";
 
 interface Props {
-    amount: number;
+    count: number;
+    setCount: React.Dispatch<React.SetStateAction<number>>;
     min: number;
-    cb: (count: number) => void;
 }
 
-const ChangeButtons = ({amount, min, cb}: Props) => {
-    const [count, setCount] = useState(amount);
-
-    useEffect(() => {
-        cb(count);
-    }, [count])
-
+const ChangeButtons = ({count, setCount, min}: Props) => {
     return (
         <div className={styles.change}>
             <button onClick={() => setCount(prev => prev + 1)}>+</button>

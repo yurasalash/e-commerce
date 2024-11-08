@@ -10,7 +10,7 @@ const ProductsList = ({products}: {products: Product[]}) => {
                 {products.map(product =>
                     <div key={product.id} className={styles.item}>
                         <Link to={`/products/${product.id}`} className={styles.image}>
-                            <img src={product.image_url} alt="" loading='lazy' />
+                            <img src={product.images[0]} alt="" loading='lazy' />
                         </Link>
                         <Link className={styles.title} to={`/products/${product.id}`}>{product.title}</Link>
                         <strong className={styles.price}>{product.price}$</strong>

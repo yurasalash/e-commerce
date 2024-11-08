@@ -1,0 +1,11 @@
+.button {
+    border-radius: var(--border-radius);
+    background: var(--color-gray);
+    padding: 10px 15px;
+    width: 200px;
+    transition: .2s;
+
+    &:hover {
+        scale: 1.1;
+    }
+}

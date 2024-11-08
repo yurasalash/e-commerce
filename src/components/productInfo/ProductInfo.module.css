@@ -31,32 +31,4 @@
   color: var(--color-black);
 }
 
-.change {
-  border-radius: var(--border-radius);
-  background: var(--color-gray);
-  padding: 10px 15px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  font-size: 30px;
-  width: 200px;
-}
-.change button {
-  transition: 0.2s;
-}
-.change button:hover {
-  scale: 1.2;
-}
-
-.add {
-  border-radius: var(--border-radius);
-  background: var(--color-gray);
-  padding: 10px 15px;
-  width: 200px;
-  transition: 0.2s;
-}
-.add:hover {
-  scale: 1.1;
-}
-
 /*# sourceMappingURL=ProductInfo.module.css.map */
