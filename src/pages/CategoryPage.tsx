@@ -4,7 +4,7 @@ import {useEffect} from "react";
 import {
     fetchProductsByCategory,
     selectAllProductsByCategory,
-    selectCategoryError, selectCategoryStatus, statusChanged
+    selectCategoryError, selectCategoryStatus
 } from "../features/products/categoriesSlice.ts";
 import {useParams} from "react-router-dom";
 
@@ -17,7 +17,7 @@ const CategoryPage = () => {
     const dispatch = useAppDispatch()
 
     useEffect(() => {
-        if (status === 'idle') {
+        if (status === 'idle' && category) {
             dispatch(fetchProductsByCategory(category));
         }
     }, [status, products])

@@ -4,7 +4,6 @@ import {useAppDispatch, useAppSelector} from "../app/hooks.ts";
 import {fetchProducts, selectAllProducts, selectError, selectStatus} from "../features/products/productSlice.ts";
 import ProductsList from "../components/productsList/ProductsList.tsx";
 import {useEffect} from "react";
-import {statusChanged} from "../features/products/categoriesSlice.ts";
 
 
 const HomePage = () => {
