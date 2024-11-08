@@ -1,8 +1,8 @@
 
 import Sidebar from "../components/sidebar/Sidebar.tsx";
 import {useAppSelector} from "../app/hooks.ts";
-import ProductsList from "../features/products/ProductsList.tsx";
 import {selectAllProducts} from "../features/products/productSlice.ts";
+import ProductsList from "../components/productsList/ProductsList.tsx";
 
 
 const HomePage = () => {

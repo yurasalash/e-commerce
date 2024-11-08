@@ -1,6 +1,6 @@
 import styles from './Products.module.css'
-import {Product} from "./productSlice.ts";
 import {Link} from "react-router-dom";
+import {Product} from "../../features/products/productSlice.ts";
 
 const ProductsList = ({products}: {products: Product[]}) => {
     return (

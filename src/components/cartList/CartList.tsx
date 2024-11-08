@@ -14,12 +14,12 @@ const CartList = ({cart, suma}: Props) => {
                 <div className={styles.items}>
                     {cart.map(item =>
                         <div key={item.id} className={styles.product}>
-                            <img src={item.product.image_url} alt="" loading={'lazy'} />
-                            <div className={styles.info}>
-                                <h3>{item.product.title}</h3>
-                                <strong>{item.product.price * item.quantity}$</strong>
-                                <span>{item.quantity}x</span>
-                            </div>
+                                <img src={item.product.image_url} alt="" loading={'lazy'}/>
+                                <div className={styles.info}>
+                                    <h3>{item.product.title}</h3>
+                                    <strong>{item.product.price * item.quantity}$</strong>
+                                    <span>{item.quantity}x</span>
+                                </div>
                         </div>
                     )}
                 </div>

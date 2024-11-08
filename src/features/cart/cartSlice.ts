@@ -34,12 +34,19 @@ export const cartSlice = createSlice({
             if (product) {
                 product.quantity = quantity
             }
+        },
+        productRemoved(state, action: PayloadAction<string>) {
+            const id = action.payload
+            const product = state.find(item => item.product.id === id)
+            if (product) {
+                product.quantity = 0
+            }
         }
     }
 })
 
 export default cartSlice.reducer
 
-export const {productsAdded} = cartSlice.actions
+export const {productsAdded, productRemoved} = cartSlice.actions
 
 export const getCart = (state: RootState) => state.cart
