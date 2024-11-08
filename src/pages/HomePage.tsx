@@ -4,6 +4,7 @@ import {useAppDispatch, useAppSelector} from "../app/hooks.ts";
 import {fetchProducts, selectAllProducts, selectError, selectStatus} from "../features/products/productSlice.ts";
 import ProductsList from "../components/productsList/ProductsList.tsx";
 import {useEffect} from "react";
+import {statusChanged} from "../features/products/categoriesSlice.ts";
 
 
 const HomePage = () => {
@@ -11,7 +12,32 @@ const HomePage = () => {
     const status = useAppSelector(selectStatus)
     const error = useAppSelector(selectError)
     const dispatch = useAppDispatch()
-    console.log(products)
+    const categories = [
+        "beauty",
+        "fragrances",
+        "furniture",
+        "groceries",
+        "home-decoration",
+        "kitchen-accessories",
+        "laptops",
+        "mens-shirts",
+        "mens-shoes",
+        "mens-watches",
+        "mobile-accessories",
+        "motorcycle",
+        "skin-care",
+        "smartphones",
+        "sports-accessories",
+        "sunglasses",
+        "tablets",
+        "tops",
+        "vehicle",
+        "womens-bags",
+        "womens-dresses",
+        "womens-jewellery",
+        "womens-shoes",
+        "womens-watches"
+    ]
 
     useEffect(() => {
         if (status === 'idle') {
@@ -29,7 +55,7 @@ const HomePage = () => {
 
     return (
         <div className="home">
-            <Sidebar />
+            <Sidebar categories={categories} />
             <div>
                 {content}
             </div>

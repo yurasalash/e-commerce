@@ -11,7 +11,12 @@
 .item {
   font-size: 18px;
   transition: 0.2s;
+
+  &:first-letter {
+    text-transform: uppercase;
+  }
 }
+
 .item:hover {
   color: var(--color-gray);
 }

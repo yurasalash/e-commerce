@@ -24,7 +24,7 @@ const initialState: ProductState = {
     error: null,
 }
 
-interface ProductRequest {
+export interface ProductRequest {
     products: Product[];
     total: number;
     skip: number;
@@ -62,7 +62,7 @@ export default productSlice.reducer
 
 export const selectAllProducts = (state: RootState) => state.products.products
 export const selectProductById = (state: RootState, id: number) =>
-    state.products.products.find(product => product.id == id)
+    state.products.products.find(product => product.id === id)
 
 export const selectStatus = (state: RootState) => state.products.status
 export const selectError = (state: RootState) => state.products.error

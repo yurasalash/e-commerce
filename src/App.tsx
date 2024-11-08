@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage.tsx";
 import Footer from "./components/footer/Footer.tsx";
 import SingleProductPage from "./pages/SingleProductPage.tsx";
 import CartPage from "./pages/CartPage.tsx";
+import CategoryPage from "./pages/CategoryPage.tsx";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
                             <Route path="/" element={<HomePage />} />
                             <Route path='/products/:productId' element={<SingleProductPage />} />
                             <Route path='/cart' element={<CartPage />} />
+                            <Route path='/products/category/:category' element={<CategoryPage />} />
                         </Routes>
                     </div>
                 </div>

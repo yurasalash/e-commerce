@@ -16,9 +16,9 @@ const CartList = ({cart, suma}: Props) => {
             <div className={styles.cart}>
                 <div className={styles.items}>
                     {cart.map(item =>
-                        <div key={item.id} className={styles.product}>
+                        <div key={item.quantity} className={styles.product}>
                             <div className={styles.details}>
-                                <img src={item.product.image_url} alt="" loading={'lazy'}/>
+                                <img src={item.product.images[0]} alt="" loading={'lazy'}/>
                                 <div className={styles.info}>
                                     <h3>{item.product.title}</h3>
                                     <strong>{item.product.price * item.quantity}$</strong>
@@ -26,7 +26,7 @@ const CartList = ({cart, suma}: Props) => {
                                 </div>
                             </div>
                             <div className={styles.delete}
-                                 onClick={() => dispatch(productRemoved(item.id))}
+                                 onClick={() => dispatch(productRemoved(item.product.id))}
                             >
                                 <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
@@ -48,7 +48,7 @@ const CartList = ({cart, suma}: Props) => {
                     )}
                 </div>
                 <div className={styles.order}>
-                    <strong className={styles.suma}>Suma is: {suma}$</strong>
+                    <strong className={styles.suma}>Suma is: {Math.round(suma)}$</strong>
                     <ButtonGray>Order</ButtonGray>
                 </div>
             </div>

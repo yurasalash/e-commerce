@@ -5,7 +5,8 @@ import ProductInfo from "../components/productInfo/ProductInfo.tsx";
 
 const SingleProductPage = () => {
     const {productId} = useParams();
-    const product = useAppSelector(state => selectProductById(state, productId!))
+    const id = Number(productId)
+    const product = useAppSelector(state => selectProductById(state, id))
 
     if (!product) {
         return <h2>Product is not found</h2>
