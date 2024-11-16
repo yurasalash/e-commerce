@@ -1,7 +1,6 @@
-import styles from './styles.module.scss'
-import {Product} from "../../../../entities/product";
+//import styles from './styles.module.scss'
 
-const ProductReviews = ({product}: {product: Product}) => {
+const ProductReviews = () => {
     return (
         <div>
 
