@@ -1,7 +1,6 @@
 import {createBrowserRouter} from "react-router-dom";
 import BaseLayout from "./layouts/BaseLayout.tsx";
-// @ts-ignore
-import './styles/index.scss'
+import "./styles/index.scss"
 import {Main} from "../pages/main";
 import {Product} from "../pages/product";
 import {Cart} from "../pages/cart";

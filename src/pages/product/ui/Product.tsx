@@ -1,7 +1,7 @@
 import styles from './styles.module.scss'
 import {useParams} from "react-router-dom";
 import {useGetProductByIdQuery} from "../../../entities/product/api/productApi.ts";
-import {ProductInfo, ProductReviews} from "../../../widgets/product";
+import {ProductInfo} from "../../../widgets/product";
 
 const Product = () => {
     const {productId} = useParams()
@@ -16,7 +16,6 @@ const Product = () => {
         <>
             {data && <div className={styles.product}>
                 <ProductInfo product={data} />
-                <ProductReviews product={data} />
             </div>}
         </>
     );
