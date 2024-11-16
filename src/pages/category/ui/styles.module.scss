@@ -1,0 +1,14 @@
+.category {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.title {
+    font-size: 30px;
+
+    &:first-letter {
+        text-transform: uppercase;
+    }
+}

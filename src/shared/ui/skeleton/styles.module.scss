@@ -1,0 +1,12 @@
+.skeleton {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    row-gap: 50px;
+    column-gap: 20px;
+}
+
+.item {
+    background: var(--color-gray);
+    height: 200px;
+    width: 100px;
+}

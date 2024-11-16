@@ -1,0 +1,15 @@
+.paggination {
+    display: flex;
+
+    span {
+        cursor: pointer;
+        padding: 5px 15px;
+        border: 1px solid var(--color-gray);
+        font-size: 20px;
+    }
+
+    .active {
+        background: var(--color-gray);
+        color: var(--color-dark);
+    }
+}
