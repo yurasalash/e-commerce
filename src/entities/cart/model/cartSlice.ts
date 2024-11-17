@@ -40,3 +40,4 @@ export default cartSlice.reducer;
 export const {addToCart, changeQuantity} = cartSlice.actions;
 
 export const selectCartList = (state: RootState) => state.cart.products
+export const selectCartLength = (state: RootState) => state.cart.products.length

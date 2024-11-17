@@ -1,0 +1,24 @@
+.empty {
+    font-size: 25px;
+}
+
+.reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.title {
+    font-size: 25px;
+}
+
+.list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 30px;
+    column-gap: 30px;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}

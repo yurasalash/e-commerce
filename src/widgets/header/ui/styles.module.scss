@@ -56,7 +56,11 @@
     svg {
         width: 25px;
         height: 25px;
-        fill: var(--color-gray)
+        fill: var(--color-gray);
+        
+        @media (max-width: 540px) {
+            display: none;
+        }
     }
 
     input {
@@ -77,6 +81,10 @@
         @media (max-width: 540px) {
             width: 150px;
         }
+
+        @media (max-width: 480px) {
+            width: 100px;
+        }
     }
 }
 
@@ -88,11 +96,28 @@
 }
 
 .cart {
+    position: relative;
+
     svg {
         color: var(--color-white);
         fill: var(--color-dark);
         width: 40px;
         height: 40px;
+    }
+
+    span {
+        position: absolute;
+        display: flex;
+        bottom: 0;
+        right: 0;
+        width: 20px;
+        height: 20px;
+        color: var(--color-white);
+        border-radius: 50%;
+        z-index: 10;
+        background: red;
+        align-items: center;
+        justify-content: center;
     }
 }
 
