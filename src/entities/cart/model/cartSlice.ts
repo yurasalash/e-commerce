@@ -1,4 +1,4 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createSelector, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {Product} from "../../product";
 import {RootState} from "../../../app/appStore.ts";
 
@@ -38,6 +38,13 @@ const cartSlice = createSlice({
 
 export default cartSlice.reducer;
 export const {addToCart, changeQuantity} = cartSlice.actions;
-
-export const selectCartList = (state: RootState) => state.cart.products
-export const selectCartLength = (state: RootState) => state.cart.products.length
+export const selectCartList = createSelector(
+    (state: RootState) => state,
+    (state) => state.cart.products
+)
+//export const selectCartList = (state: RootState) => state.cart.products
+export const selectCartLength = createSelector(
+    (state: RootState) => state,
+    (state) => state.cart.products.length
+)
+//export const selectCartLength = (state: RootState) => state.cart.products.length
