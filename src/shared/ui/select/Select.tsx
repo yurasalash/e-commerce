@@ -21,7 +21,7 @@ const Select = ({setSort, setOrder}: Props) => {
             <option value="" disabled>Sort by</option>
             <option value="price asc">From cheaper to expensive</option>
             <option value="price desc">From expensive to cheaper</option>
-            <option value="rating asc">By rating</option>
+            <option value="rating desc">By rating</option>
         </select>
     );
 };
