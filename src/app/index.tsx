@@ -4,11 +4,14 @@ import {Provider} from "react-redux";
 import {appStore} from "./appStore.ts";
 import {RouterProvider} from "react-router-dom";
 import {appRouter} from "./appRouter.tsx";
+import {ModalProvider} from "./providers/ModalProvider.tsx";
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
-        <Provider store={appStore}>
+        <ModalProvider>
+            <Provider store={appStore}>
                 <RouterProvider router={appRouter} />
-        </Provider>
+            </Provider>
+        </ModalProvider>
     </StrictMode>,
 )

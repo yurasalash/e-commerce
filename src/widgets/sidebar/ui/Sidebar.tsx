@@ -1,7 +1,8 @@
 import styles from './styles.module.scss'
 import {Link} from "react-router-dom";
+import {useModal} from "../../../app/providers/ModalProvider.tsx";
 
-const Sidebar = ({modal}: {modal?: boolean}) => {
+const Sidebar = () => {
     const categories = [
         "beauty",
         "fragrances",
@@ -28,13 +29,14 @@ const Sidebar = ({modal}: {modal?: boolean}) => {
         "womens-shoes",
         "womens-watches"
     ]
+    const {modal, closeModal} = useModal()
 
     return (
         <aside className={modal ? [styles.sidebar, styles.active] : styles.sidebar}>
             <ul className={styles.list}>
                 {categories.map(category =>
                     <li key={category} className={styles.item}>
-                        <Link to={`/categories/${category}`}>{category}</Link>
+                        <Link to={`/categories/${category}`} onClick={closeModal}>{category}</Link>
                     </li>
                 )}
             </ul>

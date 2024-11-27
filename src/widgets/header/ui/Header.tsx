@@ -5,10 +5,11 @@ import {Modal} from "../../../shared/ui";
 import {Sidebar} from "../../sidebar";
 import {useAppSelector} from "../../../app/appStore.ts";
 import {selectCartLength} from "../../../entities/cart/model/cartSlice.ts";
+import {useModal} from "../../../app/providers/ModalProvider.tsx";
 
 const Header = () => {
     const [value, setValue] = useState('')
-    const [modal, setModal] = useState(false)
+    const {modal, toggleModal} = useModal()
     const navigate = useNavigate();
     const cartLength = useAppSelector(selectCartLength)
 
@@ -24,7 +25,7 @@ const Header = () => {
             <header className={styles.header}>
                 <div className="container">
                     <div className={styles.inner}>
-                    <span className={styles.burger} onClick={() => setModal(true)}>
+                    <span className={styles.burger} onClick={() => toggleModal()}>
                         <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
 <path d="M5 12H20" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
@@ -61,7 +62,7 @@ const Header = () => {
                     </div>
                 </div>
             </header>
-            {modal && <Modal setVisible={setModal}><Sidebar modal={true} /></Modal>}
+            {modal && <Modal><Sidebar /></Modal>}
         </>
     );
 };
