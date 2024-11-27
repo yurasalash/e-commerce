@@ -1,5 +1,5 @@
 import styles from './styles.module.scss'
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {useGetProductsByCategoryQuery} from "../../../entities/product/api/productApi.ts";
 import {ProductList} from "../../../widgets/product";
 import {Skeleton} from "../../../shared/ui";
@@ -18,7 +18,11 @@ const Category = () => {
 
     return (
         <div className={styles.category}>
-            <h2 className={styles.title}>{category} Products</h2>
+            <div className={styles.title}>
+                <Link to='/' className={styles.link}>Home</Link>
+                <span>{'>'}</span>
+                <Link to={`/categories/${category}`} className={styles.link}>{category}</Link>
+            </div>
             <ProductList
                 products={data && data.products}
                 page={page}

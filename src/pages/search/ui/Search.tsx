@@ -16,13 +16,15 @@ const Search = () => {
         return <Skeleton />
     }
 
-    if (!data) {
-        return <h2 className={styles.empty}>There is no Products</h2>
+    if (data && data.products.length === 0) {
+        return <h2 className={styles.empty}>
+            There is no Products with query: {(q?.length || 0) > 10 ? `${q?.slice(0, 9)}...` : q}
+            </h2>
     }
 
     return (
         <div className={styles.search}>
-            <h2 className={styles.title}>{q}:</h2>
+            {data && <div className={styles.title}>You searched: <span>{q}</span></div>}
             {data && <ProductList products={data && data.products}
                                   page={page}
                                   setPage={setPage}

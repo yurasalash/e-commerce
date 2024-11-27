@@ -6,9 +6,27 @@
 }
 
 .title {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+
+    @media (max-width: 480px) {
+        gap: 10px;
+    }
+
+    span {
+        font-size: 20px;
+    }
+}
+
+.link {
     font-size: 30px;
 
-    &:first-letter {
-        text-transform: uppercase;
+    &:hover {
+        opacity: 0.7;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 22px;
     }
 }

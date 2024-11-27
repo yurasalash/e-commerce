@@ -1,6 +1,7 @@
 .empty {
     font-size: 30px;
     margin-top: 30px;
+    text-align: center;
 }
 
 .search {
@@ -12,4 +13,8 @@
 
 .title {
     font-size: 30px;
+
+    span {
+        font-weight: 700;
+    }
 }
