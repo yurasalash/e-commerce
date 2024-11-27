@@ -4,6 +4,7 @@ import {useGetProductsQuery} from "../../../entities/product/api/productApi.ts";
 import {ProductList} from "../../../widgets/product";
 import {Skeleton} from "../../../shared/ui";
 import {useState} from "react";
+import {Slider} from "../../../features/slider";
 
 const Main = () => {
     const [page, setPage] = useState(1);
@@ -19,6 +20,7 @@ const Main = () => {
         <main className={styles.main}>
             <Sidebar />
             <div className={styles.content}>
+                <Slider />
                 <h2 className={styles.title}>All Products</h2>
                 <ProductList products={data && data.products}
                              setPage={setPage}

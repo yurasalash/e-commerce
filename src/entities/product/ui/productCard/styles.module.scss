@@ -3,6 +3,8 @@
     display: flex;
     flex-direction: column;
     padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 2px 0 var(--color-gray);
 }
 
 .image {
@@ -21,4 +23,8 @@
 .title {
     flex: 1 0 auto;
     margin-top: 10px;
+}
+
+.price {
+    color: red;
 }

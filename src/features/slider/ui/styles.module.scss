@@ -1,0 +1,12 @@
+.slider {
+    max-width: 100%;
+}
+
+.item {
+    width: 100%;
+    border-radius: 15px;
+
+    &.notActive {
+        display: none;
+    }
+}

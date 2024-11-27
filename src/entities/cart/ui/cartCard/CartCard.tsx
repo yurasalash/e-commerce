@@ -9,10 +9,10 @@ const CartCard = ({product, quantity}: {product: Product, quantity: number}) => 
     return (
         <li className={styles.item}>
             <div className={styles.info}>
-                <img src={product.images[0]} alt="" loading='lazy' className={styles.image}/>
+                <img src={product.images[0]} alt="" className={styles.image}/>
                 <div className={styles.details}>
                     <h3 className={styles.title}>{product.title}</h3>
-                    <strong className={styles.price}>{product.price}</strong>
+                    <strong className={styles.price}>{product.price}$</strong>
                     <div className={styles.buttons}>
                         <span
                             onClick={() => dispatch(changeQuantity({id: product.id, quantity: quantity - 1}))}>-</span>

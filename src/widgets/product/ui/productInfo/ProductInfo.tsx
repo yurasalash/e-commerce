@@ -7,7 +7,7 @@ const ProductInfo = ({product}: {product: Product}) => {
     const dispatch = useAppDispatch()
     return (
         <div className={styles.info}>
-            <img src={product.images[0]} alt="" loading='lazy' className={styles.image} />
+            <img src={product.images[0]} alt="" className={styles.image} />
             <div className={styles.details}>
                 <h3 className={styles.title}>{product.title}</h3>
                 <div className={styles.body}>{product.description}</div>
