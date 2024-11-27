@@ -6,7 +6,7 @@ const CartList = ({products}: {products: {item: Product, quantity: number}[]}) =
     return (
         <ul className={styles.list}>
             {products.map(product =>
-                <CartCard product={product.item} quantity={product.quantity} />
+                <CartCard key={product.item.id} product={product.item} quantity={product.quantity} />
             )}
         </ul>
     );
