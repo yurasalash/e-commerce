@@ -4,13 +4,13 @@ import {Link} from "react-router-dom";
 
 const Slider = () => {
     const images = [
-        '../../../../public/assets/slider/1.jpg',
-        '../../../../public/assets/slider/2.jpg',
-        '../../../../public/assets/slider/3.jpg',
-        '../../../../public/assets/slider/4.jpg',
-        '../../../../public/assets/slider/5.jpg',
-        '../../../../public/assets/slider/6.jpg',
-        '../../../../public/assets/slider/7.jpg'
+        'https://content1.rozetka.com.ua/banner_main/image/original/490442349.jpg',
+        'https://content.rozetka.com.ua/banner_main/image/original/489238363.jpg',
+        'https://content1.rozetka.com.ua/banner_main/image/original/487647176.jpg',
+        'https://content2.rozetka.com.ua/banner_main/image/original/487684773.jpg',
+        'https://content1.rozetka.com.ua/banner_main/image/original/491702150.jpg',
+        'https://content1.rozetka.com.ua/banner_main/image/original/492549342.jpg',
+        'https://content2.rozetka.com.ua/banner_main/image/original/491874115.jpg'
     ]
     const [active, setActive] = useState(0)
 
