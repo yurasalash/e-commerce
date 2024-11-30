@@ -1,16 +1,32 @@
 import styles from './styles.module.scss'
-import {Link, useParams} from "react-router-dom";
+import {Link, useParams, useSearchParams} from "react-router-dom";
 import {useGetProductsByCategoryQuery} from "../../../entities/product/api/productApi.ts";
 import {ProductList} from "../../../widgets/product";
 import {Skeleton} from "../../../shared/ui";
 import {useState} from "react";
 
 const Category = () => {
+    const [searchParams, setSearchParams] = useSearchParams()
     const {category} = useParams()
-    const [page, setPage] = useState(1);
-    const [sort, setSort] = useState('');
-    const [order, setOrder] = useState('');
+    const page = Number(searchParams.get("page")) || 1;
+    const sort = searchParams.get('sort') || '';
+    const order = searchParams.get('order') || '';
     const {data, isLoading} = useGetProductsByCategoryQuery({page, category, sort, order})
+
+    const handlePage = (page: number) => {
+        setSearchParams({
+            ...Object.fromEntries(searchParams.entries()),
+            page: String(page),
+        })
+    }
+
+    const handleFilter = (sort: string, order: string) => {
+        setSearchParams({
+            ...Object.fromEntries(searchParams.entries()),
+            sort,
+            order
+        })
+    }
 
     if (isLoading) {
         return <Skeleton />
@@ -26,10 +42,9 @@ const Category = () => {
             <ProductList
                 products={data && data.products}
                 page={page}
-                setPage={setPage}
+                handlePage={handlePage}
                 total={data ? data.total : 0}
-                setSort={setSort}
-                setOrder={setOrder}
+                handleFilter={handleFilter}
             />
         </div>
     );

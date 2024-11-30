@@ -24,7 +24,7 @@ const Slider = () => {
     return (
         <div className={styles.slider}>
             {images.map((image, i) =>
-                <Link to={'/'}>
+                <Link to={'/'} key={i}>
                     <img src={image}
                          alt=""
                          className={i !== active ? `${styles.item} ${styles.notActive}` : styles.item}

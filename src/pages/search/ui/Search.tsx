@@ -1,19 +1,35 @@
 import styles from './styles.module.scss'
-import {useParams} from "react-router-dom";
+import {useParams, useSearchParams} from "react-router-dom";
 import {useState} from "react";
 import {useGetProductsByQueryQuery} from "../../../entities/product/api/productApi.ts";
 import {Skeleton} from "../../../shared/ui";
 import {ProductList} from "../../../widgets/product";
 
 const Search = () => {
+    const [searchParams, setSearchParams] = useSearchParams()
     const {q} = useParams()
-    const [page, setPage] = useState(1);
-    const [order, setOrder] = useState('');
-    const [sort, setSort] = useState('');
+    const page = Number(searchParams.get("page")) || 1;
+    const order = searchParams.get("order") || '';
+    const sort = searchParams.get('sort') || '';
     const {data, isLoading} = useGetProductsByQueryQuery({page, q, sort, order})
 
     if (isLoading) {
         return <Skeleton />
+    }
+
+    const handlePage = (page: number) => {
+        setSearchParams({
+            ...Object.fromEntries(searchParams.entries()),
+            page: String(page),
+        })
+    }
+
+    const handleFilter = (sort: string, order: string) => {
+        setSearchParams({
+            ...Object.fromEntries(searchParams.entries()),
+            sort,
+            order
+        })
     }
 
     if (data && data.products.length === 0) {
@@ -27,9 +43,8 @@ const Search = () => {
             {data && <div className={styles.title}>You searched: <span>{q}</span></div>}
             {data && <ProductList products={data && data.products}
                                   page={page}
-                                  setPage={setPage}
-                                  setSort={setSort}
-                                  setOrder={setOrder}
+                                  handlePage={handlePage}
+                                  handleFilter={handleFilter}
                                   total={data ? data.total : 0}
             />}
         </div>

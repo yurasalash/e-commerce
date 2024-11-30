@@ -5,27 +5,26 @@ import {Select} from "../../../../shared/ui";
 
 interface Props {
     products?: Product[];
-    setPage: (page: number) => void;
+    handlePage: (page: number) => void;
     page: number;
     total: number;
-    setSort: (sort: string) => void;
-    setOrder: (order: string) => void;
+    handleFilter: (sort: string, order: string) => void;
 }
 
-const ProductList = ({products, setPage, page, total, setSort, setOrder}: Props) => {
+const ProductList = ({products, handlePage, page, total, handleFilter}: Props) => {
     if (!total) {
         return <h2 className={styles.none}>There is no products</h2>
     }
 
     return (
         <div className={styles.wrapper}>
-            <Select setOrder={setOrder} setSort={setSort} />
+            <Select handleFilter={handleFilter} />
             <ul className={styles.list}>
                 {products?.map(product =>
                     <ProductCard key={product.id} product={product}/>
                 )}
             </ul>
-            {total > 10 && <Pagination setPage={setPage} page={page} total={total} />}
+            {total > 10 && <Pagination handlePage={handlePage} page={page} total={total} />}
         </div>
     );
 };

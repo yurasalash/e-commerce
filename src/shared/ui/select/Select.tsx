@@ -2,17 +2,15 @@ import styles from './styles.module.scss'
 import {useState} from "react";
 
 interface Props {
-    setOrder: (order: string) => void;
-    setSort: (sort: string) => void;
+    handleFilter: (order: string, sort: string) => void;
 }
 
-const Select = ({setSort, setOrder}: Props) => {
+const Select = ({handleFilter}: Props) => {
     const [value, setValue] = useState('')
     const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const response = event.target.value;
         const arr = response.split(' ')
-        setSort(arr[0]);
-        setOrder(arr[1]);
+        handleFilter(arr[0], arr[1])
         setValue(response)
     }
 
