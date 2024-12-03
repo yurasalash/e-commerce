@@ -1,6 +1,6 @@
 import styles from './styles.module.scss'
 import {Link, useNavigate} from "react-router-dom";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Modal} from "../../../shared/ui";
 import {Sidebar} from "../../sidebar";
 import {useAppSelector} from "../../../app/appStore.ts";
@@ -19,6 +19,13 @@ const Header = () => {
             setValue('')
         }
     }
+
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === "Enter" && value) {
+            navigate(`/search/${value}`)
+            setValue('')
+        }
+    };
 
     return (
         <>
@@ -47,6 +54,7 @@ const Header = () => {
                                    placeholder="Search..."
                                    value={value}
                                    onChange={(e) => setValue(e.target.value)}
+                                   onKeyDown={handleKeyDown}
                             />
                             <button onClick={handleClick} className={styles.button}>Search</button>
                         </div>

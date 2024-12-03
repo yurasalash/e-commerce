@@ -3,7 +3,6 @@ import {Sidebar} from "../../../widgets/sidebar";
 import {useGetProductsQuery} from "../../../entities/product/api/productApi.ts";
 import {ProductList} from "../../../widgets/product";
 import {Skeleton} from "../../../shared/ui";
-import {useState} from "react";
 import {Slider} from "../../../features/slider";
 import {useSearchParams} from "react-router-dom";
 

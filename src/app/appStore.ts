@@ -3,14 +3,6 @@ import {useDispatch, useSelector} from "react-redux";
 import cart from '../entities/cart/model/cartSlice.ts'
 import {productApi} from "../entities/product/api/productApi.ts";
 
-/*const cartMiddleware = ({getState}) => {
-    return (next) => (action) => {
-        const result = next(action);
-        localStorage.setItem("cart", JSON.stringify(getState()));
-        return result;
-    }
-}*/
-
 const rootReducer = combineReducers({
     cart,
     [productApi.reducerPath]: productApi.reducer,

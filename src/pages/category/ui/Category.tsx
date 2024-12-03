@@ -3,7 +3,6 @@ import {Link, useParams, useSearchParams} from "react-router-dom";
 import {useGetProductsByCategoryQuery} from "../../../entities/product/api/productApi.ts";
 import {ProductList} from "../../../widgets/product";
 import {Skeleton} from "../../../shared/ui";
-import {useState} from "react";
 
 const Category = () => {
     const [searchParams, setSearchParams] = useSearchParams()

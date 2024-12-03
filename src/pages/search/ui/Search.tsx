@@ -1,6 +1,5 @@
 import styles from './styles.module.scss'
 import {useParams, useSearchParams} from "react-router-dom";
-import {useState} from "react";
 import {useGetProductsByQueryQuery} from "../../../entities/product/api/productApi.ts";
 import {Skeleton} from "../../../shared/ui";
 import {ProductList} from "../../../widgets/product";
