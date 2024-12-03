@@ -1,8 +1,7 @@
 import styles from './styles.module.scss'
 import {Link, useNavigate} from "react-router-dom";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {Modal} from "../../../shared/ui";
-import {Sidebar} from "../../sidebar";
 import {useAppSelector} from "../../../app/appStore.ts";
 import {selectCartLength} from "../../../entities/cart/model/cartSlice.ts";
 import {useModal} from "../../../app/providers/ModalProvider.tsx";
@@ -70,7 +69,7 @@ const Header = () => {
                     </div>
                 </div>
             </header>
-            {modal && <Modal><Sidebar /></Modal>}
+            {modal && <Modal />}
         </>
     );
 };
